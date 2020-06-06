@@ -1,0 +1,24 @@
+<mat-toolbar class="header" color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+  <h1 class="app-name">Компания</h1>
+</mat-toolbar>
+
+<mat-sidenav-container class="container">
+  <mat-sidenav #sidenav mode="side" opened class="sidenav"
+               [fixedInViewport]="false">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/department']">
+        <span matLine>Отделы</span>
+      </a>
+      <a mat-list-item [routerLink]="['/employee']">
+        <span matLine>Сотрудники</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="view">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

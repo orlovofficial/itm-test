@@ -1,3 +1,5 @@
+const { Employee } = require('../db');
+
 module.exports.getAll = function (req, res) {
 
 };
