@@ -1,6 +1,7 @@
+
 <h3>{{isNew ? 'Новый отдел' : 'Редактировать'}}</h3>
 <div class="form-container">
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
       <mat-label>Название</mat-label>
       <input matInput placeholder="Введиде название отдела" formControlName="name">
@@ -12,7 +13,7 @@
     </mat-form-field>
 
     <div>
-      <button type="button" mat-raised-button class="space-right">Отменить</button>
+      <button type="button" mat-raised-button class="space-right" (click)="onCancel()">Отменить</button>
       <button
         type="submit"
         [disabled]="form.invalid || form.disabled"

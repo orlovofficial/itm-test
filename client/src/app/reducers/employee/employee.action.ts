@@ -20,3 +20,8 @@ export const updateEmployee = createAction(
   '[Employee] Update',
   props<Employee>()
 );
+
+export const filterEmployee = createAction(
+  '[Employee] Filter by departmentId',
+  props<{ id: number }>()
+);

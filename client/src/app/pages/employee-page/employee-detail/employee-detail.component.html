@@ -1,8 +1,10 @@
-<div class="toolbar">
-  <h3>Иван Иванов</h3>
-  <div>
-    <a [routerLink]="['./edit']" mat-raised-button class="space-right">Редактировать</a>
-    <button mat-raised-button color="warn">Удалить</button>
+<ng-container *ngIf="employee$ | async as employee">
+  <div class="toolbar">
+    <h3>{{employee.firstName}} {{employee.lastName}}</h3>
+    <div>
+      <a [routerLink]="['./edit']" mat-raised-button class="space-right">Редактировать</a>
+      <button mat-raised-button color="warn" (click)="onDelete(employee.employeeId)">Удалить</button>
+    </div>
   </div>
-</div>
-<p>Отдел</p>
+  <p>{{employee.departmentId}}</p>
+</ng-container>

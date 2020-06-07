@@ -1,10 +1,12 @@
+<ng-container *ngIf="department$ | async as department">
 <div class="toolbar">
-  <h3>Отделы</h3>
+  <h3>{{department.name}}</h3>
   <div>
     <a [routerLink]="['./edit']" mat-raised-button class="space-right">Редактировать</a>
-    <button mat-raised-button color="warn">Удалить</button>
+    <button mat-raised-button color="warn" (click)="onDelete(department.departmentId)">Удалить</button>
   </div>
 </div>
-<p>Описание</p>
+<p>{{department.description}}</p>
 
-<app-employees-list></app-employees-list>
+<app-employees-list [displayedColumns]="['firstName', 'lastName']"></app-employees-list>
+</ng-container>

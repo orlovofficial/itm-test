@@ -1,6 +1,6 @@
 <h3>{{isNew ? 'Новый сотрудник' : 'Редактировать'}}</h3>
 <div class="form-container">
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
       <mat-label>Имя</mat-label>
       <input matInput placeholder="Введиде имя сотрудника" formControlName="firstName">
@@ -13,14 +13,13 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Отдел</mat-label>
-      <mat-select formControlName="departmentId">
-        <mat-option value="1">HR</mat-option>
-        <mat-option value="2">PR</mat-option>
+      <mat-select formControlName="departmentId" *ngIf="departmentsState$ | async as departments">
+        <mat-option *ngFor="let item of departments.departments" value="{{item.departmentId.toString()}}">{{item.name}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <div>
-      <button type="button" mat-raised-button class="space-right">Отменить</button>
+      <button type="button" mat-raised-button class="space-right" (click)="onCancel()">Отменить</button>
       <button
         type="submit"
         [disabled]="form.invalid || form.disabled"

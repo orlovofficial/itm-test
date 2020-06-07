@@ -17,11 +17,11 @@ const _departmentReducer = createReducer(initialState,
   })),
   on(deleteDepartment, (state: Departments, {id}) => ({
     ...state,
-    departments: state.departments.filter((item) => (item.id !== id))
+    departments: state.departments.filter((item) => (item.departmentId !== id))
   })),
   on(updateDepartment, (state: Departments, department: Department) => ({
     ...state,
-    departments: state.departments.map((item) => (item.id === department.id ? department : item))
+    departments: state.departments.map((item) => (item.departmentId === department.departmentId ? department : item))
   }))
 );
 
