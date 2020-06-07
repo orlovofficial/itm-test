@@ -1,1 +1,10 @@
-<p>department-detail works!</p>
+<div class="toolbar">
+  <h3>Отделы</h3>
+  <div>
+    <a [routerLink]="['./edit']" mat-raised-button class="space-right">Редактировать</a>
+    <button mat-raised-button color="warn">Удалить</button>
+  </div>
+</div>
+<p>Описание</p>
+
+<app-employees-list></app-employees-list>

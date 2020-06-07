@@ -28,8 +28,8 @@ const routes: Routes = [
         ] },
       { path: 'employee', component: EmployeePageComponent, children: [
           { path: '', component: EmployeesListComponent },
-          { path: ':id', component: EmployeeDetailComponent },
           { path: 'new', component: EmployeeFormComponent },
+          { path: ':id', component: EmployeeDetailComponent },
           { path: ':id/edit', component: EmployeeFormComponent }
         ] },
       { path: '**',   redirectTo: '/department', pathMatch: 'full' }

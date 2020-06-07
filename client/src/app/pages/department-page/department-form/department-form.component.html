@@ -1,1 +1,23 @@
-<p>department-form works!</p>
+<h3>{{isNew ? 'Новый отдел' : 'Редактировать'}}</h3>
+<div class="form-container">
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Название</mat-label>
+      <input matInput placeholder="Введиде название отдела" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Описание</mat-label>
+      <input matInput placeholder="Введиде описание отдела" formControlName="description">
+    </mat-form-field>
+
+    <div>
+      <button type="button" mat-raised-button class="space-right">Отменить</button>
+      <button
+        type="submit"
+        [disabled]="form.invalid || form.disabled"
+        mat-raised-button
+        color="primary">{{isNew ? 'Создать' : 'Сохранить'}}</button>
+    </div>
+  </form>
+</div>

@@ -1,1 +1,12 @@
-<p>departments-list works!</p>
+<div class="toolbar">
+  <h3>Отделы <span class="count">0</span></h3>
+  <a [routerLink]="['./new']" mat-raised-button>Создать отдел</a>
+</div>
+<div class="list">
+  <a [routerLink]="[2]">
+    <div class="list__item">HR служба</div>
+  </a>
+  <a [routerLink]="[3]">
+    <div class="list__item">Менеджент</div>
+  </a>
+</div>

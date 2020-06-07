@@ -1,1 +1,31 @@
-<p>employee-form works!</p>
+<h3>{{isNew ? 'Новый сотрудник' : 'Редактировать'}}</h3>
+<div class="form-container">
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Имя</mat-label>
+      <input matInput placeholder="Введиде имя сотрудника" formControlName="firstName">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Фамилия</mat-label>
+      <input matInput placeholder="Введиде фамилию сотрудника" formControlName="lastName">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Отдел</mat-label>
+      <mat-select formControlName="departmentId">
+        <mat-option value="1">HR</mat-option>
+        <mat-option value="2">PR</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div>
+      <button type="button" mat-raised-button class="space-right">Отменить</button>
+      <button
+        type="submit"
+        [disabled]="form.invalid || form.disabled"
+        mat-raised-button
+        color="primary">{{isNew ? 'Добавить' : 'Сохранить'}}</button>
+    </div>
+  </form>
+</div>

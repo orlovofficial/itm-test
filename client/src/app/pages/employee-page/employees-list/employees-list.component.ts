@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { Store } from '@ngrx/store';
+import { State } from '../../../reducers';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-employees-list',
@@ -6,10 +10,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employees-list.component.scss']
 })
 export class EmployeesListComponent implements OnInit {
+  displayedColumns: string[] = [
+    'firstName',
+    'lastName',
+    'departmentId'
+  ];
+  dataSource;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor() { }
+  constructor(private store: Store<State>) { }
 
   ngOnInit(): void {
+
+
+
+
+
+
+    this.store.select('employees').subscribe(({employees}) => {
+      this.dataSource = new MatTableDataSource(employees);
+      this.dataSource.sort = this.sort;
+    });
+
+
+
+
+
   }
 
 }

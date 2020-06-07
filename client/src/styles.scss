@@ -2,3 +2,38 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$color-accent: #FFFFFF;
+$color-gray: #c7c7c7;
+$color-font: #000000;
+h3 {
+  margin-top: 8px;
+}
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h3 {
+    margin: 0;
+  }
+}
+.count {
+  color: $color-gray;
+}
+.list {
+  margin-top: 16px;
+  &__item {
+    border-radius: 5px;
+    border: 1px solid $color-gray;
+    padding: 16px;
+    background-color: $color-accent;
+    margin-top: 4px;
+  }
+  a {
+    text-decoration: none;
+    color: $color-font;
+  }
+}
+.space-right {
+  margin-right: 8px !important;
+}
