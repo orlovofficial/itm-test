@@ -18,7 +18,7 @@ export class EmployeesListComponent implements OnInit {
   dataSource;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-
+  tableLenght: number;
 
   constructor(private store: Store<State>) { }
 
@@ -28,6 +28,8 @@ export class EmployeesListComponent implements OnInit {
 
       this.dataSource = new MatTableDataSource(employees);
       this.dataSource.sort = this.sort;
+
+      this.tableLenght = employees.length;
     });
 
 

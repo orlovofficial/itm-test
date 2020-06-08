@@ -43,10 +43,10 @@ export class EmployeeFormComponent implements OnInit {
         this.isNew = false;
         this.store.pipe(select(selectEmployeeById, {id: +params['id']})).subscribe((employee: Employee) => {
           this.form.patchValue({
-            firstName: employee.firstName,
-            lastName: employee.lastName,
-            departmentId: employee.departmentId.toString(),
-            employeeId: +employee.employeeId
+            firstName: employee?.firstName,
+            lastName: employee?.lastName,
+            departmentId: employee?.departmentId.toString(),
+            employeeId: +employee?.employeeId
           })
         });
       }

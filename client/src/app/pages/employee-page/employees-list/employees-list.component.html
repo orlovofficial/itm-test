@@ -1,5 +1,5 @@
 <div class="toolbar">
-  <h3>Сотрудники</h3>
+  <h3>Сотрудники <span class="count"> {{tableLenght}}</span></h3>
   <a [routerLink]="['/employee/new']" mat-raised-button>Новый сотрудник</a>
 </div>
 
@@ -31,4 +31,5 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<div *ngIf="!tableLenght" class="info">Нет ни одного сотрудника</div>
 

@@ -38,9 +38,9 @@ export class DepartmentFormComponent implements OnInit {
           select(selectDepartmentById, {id: +params['id']})
         ).subscribe((department: Department) => {
           this.form.patchValue({
-            name: department.name,
-            description: department.description,
-            departmentId: department.departmentId
+            name: department?.name,
+            description: department?.description,
+            departmentId: department?.departmentId
           })
 
         });
